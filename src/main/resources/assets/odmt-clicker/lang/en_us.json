@@ -1,0 +1,44 @@
+{
+  "key.category.odmt-clicker.main": "ODMT Clicker",
+  "key.odmt-clicker.open_config": "Open settings",
+  "key.odmt-clicker.toggle": "Autoclicker ON/OFF",
+
+  "odmt-clicker.config.title": "ODMT Clicker",
+  "odmt-clicker.config.subtitle": "Press ↓ in game to open this menu",
+
+  "odmt-clicker.config.mode": "Mode: %s",
+  "odmt-clicker.mode.toggle": "Key",
+  "odmt-clicker.mode.auto": "AUTO",
+  "odmt-clicker.config.mode.tooltip": "Key: turn ON/OFF with your bound key.\nAUTO: turns on by itself when you click fast and stays on until you stop.",
+
+  "odmt-clicker.config.key": "Key: %s",
+  "odmt-clicker.config.key.tooltip": "Click, then press any key. ESC = unbind.\nNot available in AUTO mode.",
+
+  "odmt-clicker.config.min_cps": "Min CPS: %s",
+  "odmt-clicker.config.max_cps": "Max CPS: %s",
+  "odmt-clicker.config.cps.tooltip": "Each click gets a random speed from the Min-Max range.",
+
+  "odmt-clicker.config.hold": "Hold LMB: %s",
+  "odmt-clicker.config.hold.tooltip": "ON: when enabled, clicks only while you hold left mouse button.\nOFF: clicks nonstop while enabled.",
+
+  "odmt-clicker.config.hud": "HUD: %s",
+  "odmt-clicker.config.hud.tooltip": "Shows Auto: ON / Auto: OFF above the hotbar.",
+
+  "odmt-clicker.config.trigger": "Start clicks: %s",
+  "odmt-clicker.config.trigger.tooltip": "AUTO: how many fast clicks start the autoclicker.",
+
+  "odmt-clicker.config.window": "Window: %s",
+  "odmt-clicker.config.window.tooltip": "AUTO: the start clicks must fit in this time.\nLower = you need to click faster.",
+
+  "odmt-clicker.config.timeout": "Stop after: %s",
+  "odmt-clicker.config.timeout.tooltip": "AUTO: turns off when you stop clicking for this long.",
+
+  "odmt-clicker.config.auto_tool": "Auto-tool: %s",
+  "odmt-clicker.config.auto_tool.tooltip": "While mining, switches to the best tool from your hotbar.\nInactive while the autoclicker is clicking.",
+
+  "odmt-clicker.config.return_slot": "Return slot: %s",
+  "odmt-clicker.config.return_slot.tooltip": "After mining, goes back to the slot you had before.",
+
+  "odmt-clicker.config.protect": "Protect tools: %s",
+  "odmt-clicker.config.protect.tooltip": "Won't use a tool that is about to break."
+}

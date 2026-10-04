@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "odmt-clicker",
+  "version": "${version}",
+  "name": "ODMT Clicker",
+  "description": "Autoclicker with randomized CPS, AUTO detection mode, HUD status and auto-tool.",
+  "authors": ["nodirection6130"],
+  "license": "All-Rights-Reserved",
+  "icon": "assets/odmt-clicker/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["pl.odmt.clicker.OdmtClickerClient"]
+  },
+  "mixins": [
+    {
+      "config": "odmt-clicker.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

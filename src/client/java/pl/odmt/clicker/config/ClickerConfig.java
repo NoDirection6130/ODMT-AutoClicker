@@ -1,0 +1,88 @@
+package pl.odmt.clicker.config;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.fabricmc.loader.api.FabricLoader;
+import pl.odmt.clicker.OdmtClickerClient;
+
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class ClickerConfig {
+    public enum Mode { TOGGLE, AUTO }
+
+    // --- Ustawienia (zapisywane do config/odmt-clicker.json) ---
+    public Mode mode = Mode.TOGGLE;
+    public int minCps = 10;
+    public int maxCps = 14;
+    public boolean requireHold = true;
+    public boolean showHud = true;
+
+    public int autoTriggerClicks = 2;
+    public int autoWindowMs = 300;
+    public int autoTimeoutMs = 500;
+
+    public boolean autoTool = true;
+    public boolean autoToolReturn = true;
+    public boolean protectTools = true;
+
+    // --- Limity ---
+    public static final int CPS_MIN = 1;
+    public static final int CPS_MAX = 20;
+
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve("odmt-clicker.json");
+    private static ClickerConfig instance;
+
+    public static ClickerConfig get() {
+        if (instance == null) load();
+        return instance;
+    }
+
+    public static void load() {
+        ClickerConfig loaded = null;
+        if (Files.exists(PATH)) {
+            try (Reader reader = Files.newBufferedReader(PATH, StandardCharsets.UTF_8)) {
+                loaded = GSON.fromJson(reader, ClickerConfig.class);
+            } catch (Exception e) {
+                OdmtClickerClient.LOGGER.warn("Nie udalo sie wczytac configu, uzywam domyslnego", e);
+            }
+        }
+        instance = loaded != null ? loaded : new ClickerConfig();
+        instance.sanitize();
+    }
+
+    public static void save() {
+        if (instance == null) return;
+        instance.sanitize();
+        try {
+            Files.createDirectories(PATH.getParent());
+            try (Writer writer = Files.newBufferedWriter(PATH, StandardCharsets.UTF_8)) {
+                GSON.toJson(instance, writer);
+            }
+        } catch (Exception e) {
+            OdmtClickerClient.LOGGER.warn("Nie udalo sie zapisac configu", e);
+        }
+    }
+
+    public void sanitize() {
+        if (mode == null) mode = Mode.TOGGLE;
+        minCps = clamp(minCps, CPS_MIN, CPS_MAX);
+        maxCps = clamp(maxCps, CPS_MIN, CPS_MAX);
+        if (minCps > maxCps) {
+            int tmp = minCps;
+            minCps = maxCps;
+            maxCps = tmp;
+        }
+        autoTriggerClicks = clamp(autoTriggerClicks, 2, 5);
+        autoWindowMs = clamp(autoWindowMs, 100, 800);
+        autoTimeoutMs = clamp(autoTimeoutMs, 200, 2000);
+    }
+
+    private static int clamp(int v, int min, int max) {
+        return Math.max(min, Math.min(max, v));
+    }
+}
