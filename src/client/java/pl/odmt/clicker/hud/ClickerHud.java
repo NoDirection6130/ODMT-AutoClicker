@@ -8,7 +8,7 @@ import net.minecraft.client.player.LocalPlayer;
 import pl.odmt.clicker.config.ClickerConfig;
 import pl.odmt.clicker.logic.ClickEngine;
 
-/** Napis "Auto: ON / OFF" nad serduszkami i armorem, minecraftowa czcionka z cieniem. */
+/** Napis "Auto: ON / OFF" */
 public final class ClickerHud {
     private static final int WHITE = 0xFFFFFF;
     private static final int GREEN = 0x55FF55;

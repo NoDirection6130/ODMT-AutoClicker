@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-/** Menu ustawien zbudowane z vanillowych przyciskow i suwakow, wiec wyglada jak Minecraft. */
+/** Vanilla type shiit. */
 public class ClickerConfigScreen extends Screen {
     private static final int COL_WIDTH = 150;
     private static final int GAP = 10;
     private static final int ROW_STEP = 24;
-    private static final int TOP = 40;
+    private static final int TOP = 36;
 
     private final Screen parent;
     private final List<Runnable> refreshers = new ArrayList<>();
@@ -35,6 +35,7 @@ public class ClickerConfigScreen extends Screen {
     private Button holdButton;
     private Button returnButton;
     private Button protectButton;
+    private Button excludedButton;
     private IntSlider minSlider;
     private IntSlider maxSlider;
     private IntSlider triggerSlider;
@@ -139,6 +140,15 @@ public class ClickerConfigScreen extends Screen {
                 () -> cfg.protectTools, v -> cfg.protectTools = v);
 
         // Gotowe
+        // Rzad 7: wykluczone bloki auto-toola
+        y += ROW_STEP;
+        excludedButton = addRenderableWidget(Button.builder(
+                        Component.translatable("odmt-clicker.config.excluded", cfg.autoToolExcluded.size()),
+                        b -> this.minecraft.setScreen(new ExcludedBlocksScreen(this)))
+                .bounds(this.width / 2 - 100, y, 200, 20)
+                .tooltip(Tooltip.create(Component.translatable("odmt-clicker.config.excluded.tooltip")))
+                .build());
+
         y += ROW_STEP + 8;
         addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, b -> onClose())
                 .bounds(this.width / 2 - 100, y, 200, 20)
@@ -159,7 +169,7 @@ public class ClickerConfigScreen extends Screen {
         return button;
     }
 
-    /** Odswieza napisy i szarzenie opcji, ktore nie dotycza aktualnego trybu. */
+    /** Refresh + szarzaenie przycisków. */
     private void refresh() {
         ClickerConfig cfg = ClickerConfig.get();
         boolean auto = cfg.mode == ClickerConfig.Mode.AUTO;
@@ -173,6 +183,7 @@ public class ClickerConfigScreen extends Screen {
         timeoutSlider.active = auto;
         returnButton.active = cfg.autoTool;
         protectButton.active = cfg.autoTool;
+        excludedButton.active = cfg.autoTool;
     }
 
     private static Component modeText(ClickerConfig cfg) {

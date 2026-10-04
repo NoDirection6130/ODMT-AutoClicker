@@ -35,7 +35,7 @@ public class OdmtClickerClient implements ClientModInitializer {
         openConfigKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.odmt-clicker.open_config", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_DOWN, category));
 
-        // Klawisz ON/OFF - domyslnie niezbindowany, ustawiasz go w menu moda
+        // Klawisz ON/OFF - domyslnie niezbindowany
         toggleKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.odmt-clicker.toggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, category));
 
@@ -45,7 +45,7 @@ public class OdmtClickerClient implements ClientModInitializer {
             ClickEngine.onTick(client);
         });
 
-        // Koniec ticka: obsluga naszych klawiszy
+        // Koniec ticka: obsluga klawiszy
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openConfigKey.consumeClick()) {
                 if (client.screen == null) {

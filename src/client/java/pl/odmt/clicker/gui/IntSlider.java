@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
 
-/** Vanillowy suwak Minecrafta, ktory operuje na liczbach calkowitych. */
+/** Vanillo suwak Minecrafta */
 public class IntSlider extends AbstractSliderButton {
     private final String translationKey;
     private final int min;

@@ -5,9 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 /**
- * Daje dostep do licznika klikniec klawisza ataku.
- * Dzieki temu widzimy Twoje prawdziwe kliki (wykrywanie AUTO)
- * i mozemy podmienic je na kliki autoclickera.
+ * Podmienia klik na autoclick mapuje
  */
 @Mixin(KeyMapping.class)
 public interface KeyMappingAccessor {

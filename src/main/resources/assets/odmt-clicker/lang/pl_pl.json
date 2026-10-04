@@ -2,43 +2,41 @@
   "key.category.odmt-clicker.main": "ODMT Clicker",
   "key.odmt-clicker.open_config": "Otwórz ustawienia",
   "key.odmt-clicker.toggle": "Autoclicker WŁ/WYŁ",
-
   "odmt-clicker.config.title": "ODMT Clicker",
   "odmt-clicker.config.subtitle": "Strzałka ↓ w grze otwiera to menu",
-
   "odmt-clicker.config.mode": "Tryb: %s",
   "odmt-clicker.mode.toggle": "Klawisz",
   "odmt-clicker.mode.auto": "AUTO",
   "odmt-clicker.config.mode.tooltip": "Klawisz: włączasz/wyłączasz zbindowanym klawiszem.\nAUTO: włącza się sam, gdy szybko klikasz, i działa dopóki nie przestaniesz.",
-
   "odmt-clicker.config.key": "Klawisz: %s",
   "odmt-clicker.config.key.tooltip": "Kliknij i wciśnij dowolny klawisz. ESC = usuń bind.\nNiedostępne w trybie AUTO.",
-
   "odmt-clicker.config.min_cps": "Min CPS: %s",
   "odmt-clicker.config.max_cps": "Max CPS: %s",
   "odmt-clicker.config.cps.tooltip": "Każdy klik dostaje losową prędkość z zakresu Min-Max.",
-
   "odmt-clicker.config.hold": "Trzymaj LPM: %s",
   "odmt-clicker.config.hold.tooltip": "WŁ: po włączeniu klika tylko gdy trzymasz lewy przycisk.\nWYŁ: po włączeniu klika bez przerwy.",
-
   "odmt-clicker.config.hud": "HUD: %s",
   "odmt-clicker.config.hud.tooltip": "Pokazuje Auto: ON / Auto: OFF nad paskiem.",
-
   "odmt-clicker.config.trigger": "Kliki startu: %s",
   "odmt-clicker.config.trigger.tooltip": "AUTO: ile szybkich kliknięć włącza autoclicker.",
-
   "odmt-clicker.config.window": "Okno: %s",
   "odmt-clicker.config.window.tooltip": "AUTO: kliki startu muszą się zmieścić w tym czasie.\nMniej = trzeba klikać szybciej.",
-
   "odmt-clicker.config.timeout": "Stop po: %s",
   "odmt-clicker.config.timeout.tooltip": "AUTO: wyłącza się, gdy przestaniesz klikać na tyle czasu.",
-
   "odmt-clicker.config.auto_tool": "Auto-tool: %s",
   "odmt-clicker.config.auto_tool.tooltip": "Przy kopaniu zmienia na najlepsze narzędzie z paska.\nNieaktywny, gdy autoclicker właśnie klika.",
-
   "odmt-clicker.config.return_slot": "Powrót slotu: %s",
   "odmt-clicker.config.return_slot.tooltip": "Po kopaniu wraca na slot, który miałeś wcześniej.",
-
   "odmt-clicker.config.protect": "Chroń narzędzia: %s",
-  "odmt-clicker.config.protect.tooltip": "Nie użyje narzędzia, które zaraz się zepsuje."
+  "odmt-clicker.config.protect.tooltip": "Nie użyje narzędzia, które zaraz się zepsuje.",
+  "odmt-clicker.config.excluded": "Wykluczone bloki (%s)",
+  "odmt-clicker.config.excluded.tooltip": "Bloki, na których auto-tool nic nie robi i zostawia narzędzie, które trzymasz.",
+  "odmt-clicker.excluded.title": "Auto-tool: wykluczone bloki",
+  "odmt-clicker.excluded.desc": "Auto-tool nie zmienia narzędzia, gdy kopiesz te bloki.",
+  "odmt-clicker.excluded.hint": "LPM: usuń | +: dodaj",
+  "odmt-clicker.excluded.add": "Dodaj blok",
+  "odmt-clicker.excluded.remove": "LPM, żeby usunąć",
+  "odmt-clicker.picker.title": "Wybierz blok",
+  "odmt-clicker.picker.search": "Szukaj...",
+  "odmt-clicker.picker.count": "%s bloków"
 }

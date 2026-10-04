@@ -12,7 +12,7 @@ import pl.odmt.clicker.config.ClickerConfig;
 
 /**
  * Gdy trzymasz LPM na bloku, wybiera z paska najlepsze narzedzie.
- * Serwer dostaje zmiane slotu tak samo, jakbys przewinal kolkiem.
+ * Server can't see this shit.
  */
 public final class AutoTool {
     private static final int RETURN_DELAY_TICKS = 5;
@@ -39,12 +39,13 @@ public final class AutoTool {
         if (target != null) {
             idleTicks = 0;
             BlockState state = mc.level.getBlockState(target);
+            if (cfg.isExcluded(state.getBlock())) return; // blok z listy wykluczen
             float hardness = state.getDestroySpeed(mc.level, target);
             if (hardness <= 0.0f) return; // niszczy sie od razu albo jest niezniszczalny
 
             int current = inv.getSelectedSlot();
             if (ourSlot != -1 && current != ourSlot) {
-                // sam zmieniles slot w trakcie kopania - zapominamy stary
+                // jak zmieni ktoś  slota samemu w trakcie kopania - zapominanie
                 previousSlot = -1;
                 ourSlot = -1;
             }
@@ -72,7 +73,7 @@ public final class AutoTool {
         if (!cfg.autoTool || mc.screen != null || mc.gameMode == null) return null;
         LocalPlayer player = mc.player;
         if (player.isSpectator() || player.isCreative()) return null;
-        if (ClickEngine.isFiring()) return null; // nie zabieramy miecza w trakcie walki
+        if (ClickEngine.isFiring()) return null; // nie zabieramy miecza w trakcie walki <----- 8====O
         if (!mc.options.keyAttack.isDown()) return null;
 
         if (mc.hitResult instanceof BlockHitResult hit && hit.getType() == HitResult.Type.BLOCK) {

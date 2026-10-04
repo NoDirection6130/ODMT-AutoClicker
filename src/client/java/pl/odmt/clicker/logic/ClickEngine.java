@@ -9,8 +9,8 @@ import java.util.ArrayDeque;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Serce autoclickera. Wolane na poczatku kazdego ticka gry (20x na sekunde),
- * zanim vanilla przetworzy kliki ataku.
+ * ALL
+ * !!!!!zanim vanilla przetworzy kliki ataku.
  */
 public final class ClickEngine {
     private static final long OFF_VISIBLE_MS = 1500L;
@@ -42,7 +42,7 @@ public final class ClickEngine {
         boolean inGame = mc.screen == null;
         KeyMappingAccessor attack = (KeyMappingAccessor) (Object) mc.options.keyAttack;
 
-        // Ile razy NAPRAWDE kliknales lewym od ostatniego ticka
+        // Ile razy NAPRAWDE kliknales lewym od ostatniego ticka <------ LEWY LEWY LEWY
         int manualClicks = inGame ? attack.odmtclicker$getClickCount() : 0;
 
         if (cfg.mode == ClickerConfig.Mode.AUTO) {
@@ -80,7 +80,7 @@ public final class ClickEngine {
             nextClickAt = now + nextIntervalMs(cfg);
         }
 
-        // Podmieniamy Twoje kliki na nasze, zeby CPS trzymal sie ustawionego zakresu
+        // Podmieniamy  kliki, zeby CPS trzymal sie ustawionego zakresu
         attack.odmtclicker$setClickCount(clicks);
         if (clicks > 0) {
             ((MinecraftAccessor) (Object) mc).odmtclicker$setMissTime(0);
