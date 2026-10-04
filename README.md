@@ -36,6 +36,7 @@ While you hold the left mouse button on a block, ODMT Clicker switches to the be
 - **Return slot** - after mining, it switches back to the slot you had before
 - **Protect tools** - it won't use a tool that's about to break
 - Auto-tool pauses while the autoclicker is clicking, so it won't swap your sword for a shovel mid-fight
+- **Excluded blocks** - pick blocks where auto-tool does nothing, e.g. glass you want to mine with Silk Touch
 
 ## Keybinds
 
@@ -66,6 +67,7 @@ All settings are available in the in-game menu:
 | Auto-tool | Switch to the best tool while mining | ON |
 | Return slot | Go back to your previous slot after mining | ON |
 | Protect tools | Skip tools that are about to break | ON |
+| Excluded blocks | Blocks where auto-tool won't switch tools | None |
 
 ![Press (arrow down) in game to open this menu](https://cdn.modrinth.com/data/cached_images/96ee70cbad90f0b11c62457cec78e3d9fde54f43.png)
 
